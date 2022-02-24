@@ -9,9 +9,7 @@ public class Main {
 			Print.prompt();
             input = Util.testUserInput(scan);
 			prev = Util.calcPrevelance(input);
-			for (CharPrevalance chara : prev) {
-				System.out.println(chara.getCharacter()+" "+chara.getAmount()+" "+chara.getProcentOfTotalString());
-			}
+			Print.visualiser(prev);
         }
 	}
 }
