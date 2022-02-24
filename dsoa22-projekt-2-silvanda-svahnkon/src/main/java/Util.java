@@ -72,9 +72,20 @@ public class Util {
 
 
     public static LangLabel identifyLang (ArrayList<CharPrevalance> prevalance) {
-        
-        
-        return LangLabel.DE;
+        LangLabel gues = null;
+        String fileContent;
+        Double smalest = -1d;
+        Double curentLangDif;
+
+        for (LangLabel lang : LangLabel.values()) {
+            fileContent = ReadLangFile.readTextFile("assets/lang-samples/"+lang+".txt");
+            curentLangDif = profileDiferance(prevalance, calcPrevelance(proccesString(fileContent)));
+            if (curentLangDif < smalest || smalest <= -1) {
+                gues = lang;
+                smalest = curentLangDif;
+            }
+        }
+        return gues;
     }
 
     //jämför skilnaden mellan två listor på prevelansen av tecken i stvå olika strängar
