@@ -69,20 +69,19 @@ public class Util {
         }
         return prevalance;
     }
-       //retunerar en lista som innehåller info om hur ofta en 3 character lång teckenserie förekommer i en sträng
-       public static ArrayList<CharPrevalance> calcThreeChar(String input) {
+
+    //retunerar en lista som innehåller info om hur ofta en 3 character lång teckenserie förekommer i en sträng
+    public static ArrayList<CharPrevalance> calcThreeChar (String input) {
         ArrayList<CharPrevalance> prevalence = new ArrayList<CharPrevalance>();
         boolean alreadyBeenAdded;
         String tempS;
         int tempI;
-        //input = input.replaceAll("\\s+",""); behövs inte dehär?
+        input = input.replaceAll("\\s+","");
         for (int i = 0; i < input.length()-2; i++) {
-            tempS = String.valueOf(input.charAt(i)+input.charAt(i+1)+input.charAt(i+2));
+            tempS = String.valueOf(input.charAt(i)) + String.valueOf(input.charAt(i+1)) + String.valueOf(input.charAt(i+2));
             alreadyBeenAdded = false;
             if (prevalence.size() <= 0) {
                 prevalence.add(new CharPrevalance(tempS, 1, input.length()));
-            } else if (tempS.matches("\\s")) {
-
             } else {
                 for (int j = 0; j < prevalence.size(); j++) {
                     if (tempS.matches(prevalence.get(j).getCharacter())) {
