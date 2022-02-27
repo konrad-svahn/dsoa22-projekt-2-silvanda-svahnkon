@@ -99,7 +99,7 @@ public class Util {
         return prevalence;
        }
 
-           //retunerar en lista på procentell prevalence av första bokstav
+           //retunerar en lista på procentell prevalence av första bokstav :)
     public static ArrayList<CharPrevalance> calcFirstChar(String input) {
         ArrayList<CharPrevalance> prevalance = new ArrayList<CharPrevalance>();
         boolean alredyBenAdded;
