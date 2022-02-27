@@ -13,6 +13,7 @@ public class Main {
             input = Util.testUserInput(scan);
 			prev = Util.calcPrevelance(input);
 			prev2 = Util.calcThreeChar(input);
+			prev3 = Util.calcFirstChar(input);
 			Print.visualiser(prev);
 			Print.visualiser(prev2);
 			Print.visualiser(prev3);
