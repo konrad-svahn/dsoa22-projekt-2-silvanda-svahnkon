@@ -17,7 +17,7 @@ public class Main {
 			Print.visualiser(prev);
 			Print.visualiser(prev2);
 			Print.visualiser(prev3);
-			//System.out.println(Util.profileDiferance(prev, Util.calcPrevelance("aaaaabbccd")));
+			//System.out.println(Util.profileDiferance(prev, Util.calcPrevelance("aaaaabbccd"))); hups
 			lang = Util.identifyLang(prev);
 			Print.gues(lang);
         }
