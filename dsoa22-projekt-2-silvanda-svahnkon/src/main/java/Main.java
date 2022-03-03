@@ -14,10 +14,11 @@ public class Main {
 			prev = Util.calcPrevelance(input);
 			prev2 = Util.calcThreeChar(input);
 			prev3 = Util.calcFirstChar(input);
-			Print.visualiser(prev);
-			Print.visualiser(prev2);
-			Print.visualiser(prev3);
-			//System.out.println(Util.profileDiferance(prev, Util.calcPrevelance("aaaaabbccd"))); hups
+			//Print.visualiser(prev);
+			//Print.visualiser(prev2);
+			//Print.visualiser(prev3);
+			Util.makeLanguageList(prev, prev2, prev3);
+
 			lang = Util.identifyLang(prev);
 			Print.gues(lang);
         }

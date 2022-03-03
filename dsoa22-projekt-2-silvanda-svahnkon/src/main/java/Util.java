@@ -149,6 +149,28 @@ public class Util {
         return gues;
     }
 
+    public static Language[] makeLanguageList (ArrayList<CharPrevalance> prevalance1, ArrayList<CharPrevalance> prevalance2, ArrayList<CharPrevalance> prevalance3) {
+        String fileContent;
+        Language[] list = {
+            new Language(LangLabel.DE),
+            new Language(LangLabel.EN),
+            new Language(LangLabel.ES),
+            new Language(LangLabel.FI),
+            new Language(LangLabel.FR),
+            new Language(LangLabel.IT),
+            new Language(LangLabel.NO),
+            new Language(LangLabel.SV)
+        };
+        for (Language language : list) {
+            fileContent = proccesString(ReadLangFile.readTextFile("assets/lang-samples/"+language.getLabel()+".txt"));
+            language.setAnalys1(profileDiferance(prevalance1, calcPrevelance(fileContent)));
+            language.setAnalys2(profileDiferance(prevalance2, calcThreeChar(fileContent)));
+            language.setAnalys3(profileDiferance(prevalance3, calcFirstChar(fileContent)));
+        }
+        Print.list(list);
+        return list;
+    }
+
 
     //jämför skillnaden mellan två listor på prevalensen av tecken i två olika strängar
     public static double profileDiferance(ArrayList<CharPrevalance> input ,ArrayList<CharPrevalance> langSample) {

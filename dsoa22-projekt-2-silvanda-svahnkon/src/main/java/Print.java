@@ -20,4 +20,10 @@ public class Print {
         }
     }
 
+    public static void list (Language[] list) {
+        for (Language language : list) {
+            System.out.println(language.getLabel()+"  "+language.getAnalys1()+"  "+language.getAnalys2()+"  "+language.getAnalys3()+"  "+language.getFinalDiference());
+        }
+    }
+
 }
