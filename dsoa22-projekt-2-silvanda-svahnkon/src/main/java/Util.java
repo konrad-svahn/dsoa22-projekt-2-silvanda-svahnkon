@@ -106,15 +106,14 @@ public class Util {
         String tempS;
         int tempI;
         for (int i = 0; i < input.length(); i++) {
-            if( String.valueOf(input.charAt(i)) != " " && i == 0 || String.valueOf(input.charAt(i-1)) == " "){
+            if( String.valueOf(input.charAt(i)).matches("\\s") && (i == 0 || String.valueOf(input.charAt(i-1)).matches("\\s"))){
                 tempS = String.valueOf(input.charAt(i));
             
                 alredyBenAdded = false;
                 if (prevalance.size() <= 0) {
                     prevalance.add(new CharPrevalance(tempS, 1, input.length()));
-                } else if (tempS.matches("\\s")) {
-
-                } else {
+                }
+                else {
                     for (int j = 0; j < prevalance.size(); j++) {
                         if (tempS.matches(prevalance.get(j).getCharacter())) {
                             tempI = prevalance.get(j).getAmount();
