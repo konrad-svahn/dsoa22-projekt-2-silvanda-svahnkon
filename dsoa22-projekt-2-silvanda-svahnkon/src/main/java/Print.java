@@ -11,7 +11,7 @@ public class Print {
     }
 
     public static void gues(LangLabel lang) {
-        System.out.println(lang.getName());
+        System.out.println("Det närmaste språket är "+lang.getName());
     }
     
     public static void visualiser(ArrayList<CharPrevalance> prevalance) {
@@ -26,6 +26,8 @@ public class Print {
         for (Language language : list) {
             System.out.println(language.getLabel()+"  "+language.getFinalDiference()+"  "+language.getAnalys1()+"  "+language.getAnalys2()+"  "+language.getAnalys3());
         }
+        gues(list[0].getLabel());
+        System.out.println();
     }
 
 }
