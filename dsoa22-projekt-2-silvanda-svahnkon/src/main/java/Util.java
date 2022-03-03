@@ -106,7 +106,7 @@ public class Util {
         String tempS;
         int tempI;
         for (int i = 0; i < input.length(); i++) {
-            if( String.valueOf(input.charAt(i)) != " " && (i == 0 || String.valueOf(input.charAt(i-1)) == " ")){
+            if( String.valueOf(input.charAt(i)) != " " && i == 0 || String.valueOf(input.charAt(i-1)) == " "){
                 tempS = String.valueOf(input.charAt(i));
             
                 alredyBenAdded = false;
