@@ -6,7 +6,6 @@ public class Main {
 	private static ArrayList<CharPrevalance> prev2 = new ArrayList<CharPrevalance>();
 	private static ArrayList<CharPrevalance> prev3 = new ArrayList<CharPrevalance>(); // ;)
 	private static String input;
-	private static LangLabel lang;
 	public static void main(String[] args) {
 		try (Scanner scan = new Scanner(System.in)) {
 			Print.prompt();
@@ -17,10 +16,9 @@ public class Main {
 			//Print.visualiser(prev);
 			//Print.visualiser(prev2);
 			//Print.visualiser(prev3);
-			Util.makeLanguageList(prev, prev2, prev3);
-
-			lang = Util.identifyLang(prev);
-			Print.gues(lang);
+			Language[] list = Util.makeLanguageList(prev, prev2, prev3);
+			list = Util.sortLanguageList(list);
+			Print.list(list);
         }
 	}
 }

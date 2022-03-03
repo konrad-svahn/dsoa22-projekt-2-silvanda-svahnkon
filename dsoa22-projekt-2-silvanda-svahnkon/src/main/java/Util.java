@@ -132,24 +132,8 @@ public class Util {
         return prevalance;
     }
 
-    public static LangLabel identifyLang (ArrayList<CharPrevalance> prevalance) {
-        LangLabel gues = null;
-        String fileContent;
-        Double smalest = -1d;
-        Double curentLangDif;
-
-        for (LangLabel lang : LangLabel.values()) {
-            fileContent = ReadLangFile.readTextFile("assets/lang-samples/"+lang+".txt");
-            curentLangDif = profileDiferance(prevalance, calcPrevelance(proccesString(fileContent)));
-            if (curentLangDif < smalest || smalest <= -1) {
-                gues = lang;
-                smalest = curentLangDif;
-            }
-        }
-        return gues;
-    }
-
-    public static Language[] makeLanguageList (ArrayList<CharPrevalance> prevalance1, ArrayList<CharPrevalance> prevalance2, ArrayList<CharPrevalance> prevalance3) {
+    //skapar en lista över de olika språken och skriver in de rätta värdena för analyser 1, 2 & 3
+    public static Language[] makeLanguageList(ArrayList<CharPrevalance> prevalance1, ArrayList<CharPrevalance> prevalance2, ArrayList<CharPrevalance> prevalance3) {
         String fileContent;
         Language[] list = {
             new Language(LangLabel.DE),
@@ -167,13 +151,25 @@ public class Util {
             language.setAnalys2(profileDiferance(prevalance2, calcThreeChar(fileContent)));
             language.setAnalys3(profileDiferance(prevalance3, calcFirstChar(fileContent)));
         }
-        Print.list(list);
         return list;
     }
 
+    public static Language[] sortLanguageList (Language[] list) {
+        for (int i = 0; i < list.length; i++) {
+            int smalest = 0;
+            for (int j = 0 + i; j < list.length; j++) {
+                if (j == 0 + i) {smalest = j;
+                } else if (list[j].getFinalDiference() < list[smalest].getFinalDiference()){smalest = j;}
+            }
+            Language temp = list[i];
+            list[i] = list[smalest];
+            list[smalest] = temp;   
+        }
+        return list;
+    }
 
     //jämför skillnaden mellan två listor på prevalensen av tecken i två olika strängar
-    public static double profileDiferance(ArrayList<CharPrevalance> input ,ArrayList<CharPrevalance> langSample) {
+    private static double profileDiferance(ArrayList<CharPrevalance> input ,ArrayList<CharPrevalance> langSample) {
         CharPrevalance[] valuesInLangSampleButNotInInput = new CharPrevalance[langSample.size()];
         boolean isInInputButNotLangSample;
         ArrayList<Double> differences = new ArrayList<Double>();

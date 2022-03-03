@@ -21,8 +21,10 @@ public class Print {
     }
 
     public static void list (Language[] list) {
+        System.out.println();
+        System.out.println("    medeltal             analys1             analys2             analys3");
         for (Language language : list) {
-            System.out.println(language.getLabel()+"  "+language.getAnalys1()+"  "+language.getAnalys2()+"  "+language.getAnalys3()+"  "+language.getFinalDiference());
+            System.out.println(language.getLabel()+"  "+language.getFinalDiference()+"  "+language.getAnalys1()+"  "+language.getAnalys2()+"  "+language.getAnalys3());
         }
     }
 
